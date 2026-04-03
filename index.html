@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pravallika Reddy — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #EDE7D9;
+    --cream-mid: #E8E0D0;
+    --ink: #2A2520;
+    --ink-mid: #5A524A;
+    --ink-light: #8C8178;
+    --accent: #8B6F4E;
+    --accent-light: #C4A882;
+    --white: #FDFAF4;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--cream);
+    border-bottom: 1px solid var(--cream-mid);
+    padding: 0 3rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  /* SECTIONS */
+  section { padding: 7rem 3rem; }
+  .container { max-width: 1000px; margin: 0 auto; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero::before {
+    content: 'PR';
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--serif);
+    font-size: 28vw;
+    font-weight: 300;
+    color: var(--cream-dark);
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    max-width: 480px;
+    color: var(--ink-mid);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 2rem;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .hero-cta:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .hero-cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 2rem;
+    border: 1px solid var(--ink-mid);
+    color: var(--ink-mid);
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-left: 1rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .hero-cta-ghost:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+
+  .hero-contact-strip {
+    margin-top: 4rem;
+    display: flex;
+    gap: 2.5rem;
+    font-size: 12px;
+    color: var(--ink-light);
+    letter-spacing: 0.05em;
+    flex-wrap: wrap;
+  }
+
+  .hero-contact-strip a {
+    color: var(--ink-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .hero-contact-strip a:hover { color: var(--accent); }
+
+  /* SECTION HEADERS */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .section-num {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    color: var(--accent-light);
+    font-style: italic;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .divider {
+    flex: 1;
+    height: 1px;
+    background: var(--cream-mid);
+    margin-left: auto;
+  }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-left {}
+
+  .about-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--cream-dark);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-photo-placeholder::after {
+    content: 'P';
+    font-family: var(--serif);
+    font-size: 8rem;
+    font-weight: 300;
+    color: var(--accent-light);
+    font-style: italic;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    margin-top: 1px;
+    background: var(--cream-mid);
+  }
+
+  .stat-box {
+    background: var(--cream);
+    padding: 1.25rem 1rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+
+  .about-text p {
+    color: var(--ink-mid);
+    margin-bottom: 1.25rem;
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  /* SKILLS */
+  #skills { background: var(--cream); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--cream-mid);
+  }
+
+  .skill-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    transition: background 0.2s;
+  }
+
+  .skill-card:hover { background: var(--white); }
+
+  .skill-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--accent);
+    font-family: var(--serif);
+    font-style: italic;
+  }
+
+  .skill-category {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-card h3 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .skill-tag {
+    font-size: 11px;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--cream-mid);
+    color: var(--ink-mid);
+    background: var(--white);
+    letter-spacing: 0.05em;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--ink); }
+  #projects h2, #projects .section-num { color: var(--cream); }
+  #projects .divider { background: #3D352C; }
+
+  .projects-list { display: flex; flex-direction: column; gap: 1px; background: #3D352C; }
+
+  .project-item {
+    background: var(--ink);
+    padding: 2.5rem 2.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    cursor: default;
+    transition: background 0.2s;
+  }
+
+  .project-item:hover { background: #322A22; }
+
+  .project-number {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    color: var(--accent-light);
+    font-style: italic;
+    width: 2rem;
+  }
+
+  .project-info h3 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-info p {
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.6;
+    max-width: 500px;
+  }
+
+  .project-tech {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .tech-pill {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid #4A3F35;
+    color: var(--accent-light);
+  }
+
+  /* EDUCATION */
+  #education { background: var(--white); }
+
+  .edu-list { display: flex; flex-direction: column; gap: 2px; background: var(--cream-mid); }
+
+  .edu-item {
+    background: var(--white);
+    padding: 2rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .edu-institution {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .edu-degree {
+    font-size: 13px;
+    color: var(--ink-mid);
+  }
+
+  .edu-meta {
+    text-align: right;
+  }
+
+  .edu-gpa {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+  }
+
+  .edu-year {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-top: 0.25rem;
+  }
+
+  /* CERTIFICATIONS */
+  #certifications { background: var(--cream); }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--cream-mid);
+  }
+
+  .cert-card {
+    background: var(--cream);
+    padding: 2rem 1.75rem;
+    transition: background 0.2s;
+  }
+
+  .cert-card:hover { background: var(--white); }
+
+  .cert-org {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .cert-name {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--cream-dark); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-headline {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-headline em { font-style: italic; color: var(--accent); }
+
+  .contact-subtext {
+    color: var(--ink-mid);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .contact-links { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .contact-link-item {}
+
+  .contact-link-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-link-value {
+    font-size: 15px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--cream-mid);
+    padding-bottom: 0.25rem;
+    display: block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .contact-link-value:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .contact-location {
+    font-size: 13px;
+    color: var(--ink-light);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-name {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--cream);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-note {
+    font-size: 11px;
+    color: var(--ink-light);
+    letter-spacing: 0.08em;
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    section { padding: 5rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-photo-placeholder { aspect-ratio: 1/1; max-height: 280px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .project-item { grid-template-columns: 1fr; gap: 1rem; }
+    .project-tech { justify-content: flex-start; }
+    .edu-item { grid-template-columns: 1fr; }
+    .edu-meta { text-align: left; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    #hero::before { font-size: 40vw; right: -1rem; opacity: 0.5; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Pravallika Reddy</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container hero-inner">
+    <div class="hero-label">Aspiring Software Engineer</div>
+    <h1>Pattlola<br><em>Pravallika</em><br>Reddy</h1>
+    <p class="hero-desc">
+      Computer Science undergraduate with a passion for building intuitive software. 
+      Skilled in Python, C, web technologies, and database management — 
+      eager to grow and contribute to real-world engineering teams.
+    </p>
+    <div>
+      <a href="#projects" class="hero-cta">View Projects →</a>
+      <a href="mailto:reddypravallika37@gmail.com" class="hero-cta-ghost">Get in Touch</a>
+    </div>
+    <div class="hero-contact-strip">
+      <a href="mailto:reddypravallika37@gmail.com">reddypravallika37@gmail.com</a>
+      <a href="https://www.linkedin.com/in/pravallikareddy-7667292a5" target="_blank">LinkedIn</a>
+      <span>Hyderabad, Telangana, India</span>
+      <a href="tel:+916301657742">+91 6301657742</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-num">01</span>
+      <h2>About Me</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-left fade-in">
+        <div class="about-photo-placeholder"></div>
+        <div class="about-stats">
+          <div class="stat-box">
+            <span class="stat-num">8.5</span>
+            <span class="stat-label">CGPA</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">2</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">3</span>
+            <span class="stat-label">Certifications</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">5+</span>
+            <span class="stat-label">Tech Skills</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text fade-in">
+        <p>
+          I am an aspiring software professional currently pursuing a Bachelor of Technology 
+          in Computer Science &amp; Engineering at Sree Dattha Institute of Engineering and Science, 
+          Telangana — maintaining a strong CGPA of 8.50.
+        </p>
+        <p>
+          My technical foundation spans programming languages (C, Python), front-end web 
+          development (HTML, CSS), database management with MySQL, and productivity tools 
+          like MS Excel and data entry workflows.
+        </p>
+        <p>
+          Beyond code, I'm passionate about creativity — I enjoy drawing, which sharpens 
+          my attention to detail and problem-solving approach. I'm actively seeking opportunities 
+          where I can apply my skills, collaborate with industry professionals, and grow into 
+          a well-rounded software developer.
+        </p>
+        <p>
+          I've built hands-on projects ranging from a Python-based voice assistant to a 
+          gesture-controlled volume interface — reflecting my interest in practical AI integration 
+          and interactive systems.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-num">02</span>
+      <h2>Technical Skills</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card fade-in">
+        <span class="skill-icon">{ }</span>
+        <div class="skill-category">Languages</div>
+        <h3>Programming</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">C</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">&lt;/&gt;</span>
+        <div class="skill-category">Web</div>
+        <h3>Frontend</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">⊞</span>
+        <div class="skill-category">Database</div>
+        <h3>Data Management</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">MS Excel</span>
+          <span class="skill-tag">Data Entry</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">⚙</span>
+        <div class="skill-category">Environment</div>
+        <h3>Systems</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Windows OS</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">◎</span>
+        <div class="skill-category">Libraries</div>
+        <h3>Python Ecosystem</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">SpeechRecognition</span>
+          <span class="skill-tag">Pyttsx3</span>
+          <span class="skill-tag">OpenCV</span>
+        </div>
+      </div>
+      <div class="skill-card fade-in">
+        <span class="skill-icon">✦</span>
+        <div class="skill-category">Soft Skills</div>
+        <h3>Professional</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Creativity</span>
+          <span class="skill-tag">Attention to Detail</span>
+          <span class="skill-tag">Quick Learner</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-num">03</span>
+      <h2>Projects</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="projects-list">
+      <div class="project-item fade-in">
+        <div class="project-number">01</div>
+        <div class="project-info">
+          <h3>Personal Voice Assistant</h3>
+          <p>
+            A Python-based voice-controlled assistant that uses speech recognition to automate 
+            tasks and respond to natural language commands. Integrates basic AI concepts 
+            through speech processing and text-to-speech synthesis.
+          </p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">SpeechRecognition</span>
+          <span class="tech-pill">Pyttsx3</span>
+        </div>
+      </div>
+      <div class="project-item fade-in">
+        <div class="project-number">02</div>
+        <div class="project-info">
+          <h3>Gesture-Based Volume Control</h3>
+          <p>
+            A computer vision system enabling users to control audio volume through hand gestures, 
+            providing a touchless and intuitive interaction experience. Demonstrates real-time 
+            gesture tracking and system integration.
+          </p>
+        </div>
+        <div class="project-tech">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">OpenCV</span>
+          <span class="tech-pill">Computer Vision</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-num">04</span>
+      <h2>Education</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="edu-list">
+      <div class="edu-item fade-in">
+        <div>
+          <div class="edu-institution">Sree Dattha Institute of Engineering & Science</div>
+          <div class="edu-degree">B.Tech — Computer Science & Engineering</div>
+        </div>
+        <div class="edu-meta">
+          <span class="edu-gpa">8.50</span>
+          <div class="edu-year">2022 – 2026</div>
+        </div>
+      </div>
+      <div class="edu-item fade-in">
+        <div>
+          <div class="edu-institution">Balapur Chaitanya Junior College</div>
+          <div class="edu-degree">Telangana State Board of Intermediate Education</div>
+        </div>
+        <div class="edu-meta">
+          <span class="edu-gpa">9.81</span>
+          <div class="edu-year">2020 – 2022</div>
+        </div>
+      </div>
+      <div class="edu-item fade-in">
+        <div>
+          <div class="edu-institution">Krishnaveni Talent School</div>
+          <div class="edu-degree">Board of Secondary Education</div>
+        </div>
+        <div class="edu-meta">
+          <span class="edu-gpa">10.0</span>
+          <div class="edu-year">2019 – 2020</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-num">05</span>
+      <h2>Certifications</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card fade-in">
+        <div class="cert-org">Simplilearn · Microsoft</div>
+        <div class="cert-name">MS Excel Professional Certification</div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-org">E-Cell IIT Hyderabad · Skill Dunia</div>
+        <div class="cert-name">Career Guidance Webinar</div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-org">National IP Awareness Mission</div>
+        <div class="cert-name">IP Awareness Training Program</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-num">06</span>
+      <h2>Contact</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="contact-inner">
+      <div class="fade-in">
+        <p class="contact-headline">Let's build<br><em>something</em><br>together.</p>
+        <p class="contact-subtext">
+          I'm currently open to entry-level roles, internships, and collaborative 
+          projects. Whether you have an opportunity or just want to connect — 
+          I'd love to hear from you.
+        </p>
+      </div>
+      <div class="contact-links fade-in">
+        <div class="contact-link-item">
+          <div class="contact-link-label">Email</div>
+          <a href="mailto:reddypravallika37@gmail.com" class="contact-link-value">reddypravallika37@gmail.com</a>
+        </div>
+        <div class="contact-link-item">
+          <div class="contact-link-label">Phone</div>
+          <a href="tel:+916301657742" class="contact-link-value">+91 63016 57742</a>
+        </div>
+        <div class="contact-link-item">
+          <div class="contact-link-label">LinkedIn</div>
+          <a href="https://www.linkedin.com/in/pravallikareddy-7667292a5" target="_blank" class="contact-link-value">pravallikareddy-7667292a5</a>
+        </div>
+        <div class="contact-link-item">
+          <div class="contact-link-label">Location</div>
+          <span class="contact-link-value contact-location">Hyderabad, Telangana, India</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Pattlola Pravallika Reddy</div>
+  <div class="footer-note">Aspiring Software Engineer · Hyderabad, India · 2026</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
